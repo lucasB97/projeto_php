@@ -1,4 +1,4 @@
-<?php
+?php
 $id = $_GET['id'];
 
  include "conecta.php";
@@ -6,12 +6,14 @@ $stmt =$conn->prepare("select * from produto where id_categoria = ? ");
 $stmt->bindParam(1, $id);
 $stmt->execute();
 
-$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$resultado = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
 ?>
 
 
 <!DOCTYPE html>
-<html >
+<html>
 <head>
 	<title>Pagina Inical</title>
 	<meta charset="utf-8">
@@ -36,29 +38,35 @@ $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <br>
 
 <div class="row" style="
-    margin-left: 90px;
-">
+    margin-left: 90px;">
+
+            <?php
+                if($resultado == null)
+                 echo "<h2 style = 'text-align: center'> Categoria Vazia </h2> " 
+
+              ?>
+    
 <?php
-
-
 foreach($resultado as $linha){
 
+    
 ?>
  
         <div class="col-md-4 col-6">
-          
+             
             <img class="img-rounded" style="width: 300px; height: 250px"    src="imagens/<?php echo $linha['foto_produto']?>" >
 
             <h3 style="text-align:;"><?php echo $linha['nome_produto']?>
               <p class="text-gray-dark"> R$:<?php echo $linha['preco']?></p>
+              
+              
+           
             </h3>
             
          
         </div>
 <?php }?>
 </div>
-
-
 
       </div>
                         
