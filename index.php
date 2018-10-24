@@ -23,7 +23,7 @@
       </div>
     
 
-    <h2 class="title" align="left" >CATEGORIAS</h2>
+    <h2 class="title" align="left" >CATEGORIA</h2>
      <div class="containerBar">  
     <div class="row">
         <div class="col-sm-2">
